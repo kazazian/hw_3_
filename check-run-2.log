@@ -1,0 +1,161 @@
+
+=== Новый проект с пустым хранилищем ===
+Проект: countercheck-tmpuyr2gbh0qe
+ Image countercheck-tmpuyr2gbh0qe-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 514B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 30B
+#2 transferring dockerfile: 207B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 93B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 127B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [3/5] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [5/5] COPY app/ .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:7ebdbad0504ccc96194af325d91bb5e9344742fa006cd51f6742929fcebd7306 done
+#11 exporting config sha256:07967104d40469df0c71a833e0a8dfeef9de21458dfbdc9d4ab4e0bd1e402121 done
+#11 exporting attestation manifest sha256:500ac2a56d08ca6ccd35f1781227109d3bf93ca61f7dd72de610e27bd8f350b6 done
+#11 exporting manifest list sha256:a8c2223c2eccaa677b2fb4d9fdf99ec2e95fcec17711ed5e909bba7e80f61ac3 done
+#11 naming to docker.io/library/countercheck-tmpuyr2gbh0qe-app:latest done
+#11 unpacking to docker.io/library/countercheck-tmpuyr2gbh0qe-app:latest done
+#11 DONE 0.0s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image countercheck-tmpuyr2gbh0qe-app Built 
+ Network countercheck-tmpuyr2gbh0qe_default Creating 
+ Network countercheck-tmpuyr2gbh0qe_default Creating 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Creating 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Creating 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Created 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Created 
+ Network countercheck-tmpuyr2gbh0qe_default Created 
+ Network countercheck-tmpuyr2gbh0qe_default Created 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Creating 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Created 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Creating 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Created 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Started 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Healthy 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Started 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Healthy 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Healthy 
+GET /: count=0 — OK
+
+=== Ограничения приложения ===
+UID=10001; read-only=true; RAM=256 MiB; CPU=1 — OK
+
+=== Увеличение счётчика ===
+POST /increment: count=1 — OK
+POST /increment: count=2 — OK
+POST /increment: count=3 — OK
+GET /: count=3 — OK
+
+=== Пересоздание только приложения ===
+ Container countercheck-tmpuyr2gbh0qe-app-1 Recreate 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Recreated 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Started 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Healthy 
+GET /: count=3 — OK
+
+=== Сохранение после down и up ===
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopped 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Removing 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Removed 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopped 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Removing 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Removed 
+ Network countercheck-tmpuyr2gbh0qe_default Removing 
+ Network countercheck-tmpuyr2gbh0qe_default Removed 
+ Network countercheck-tmpuyr2gbh0qe_default Creating 
+ Network countercheck-tmpuyr2gbh0qe_default Creating 
+ Network countercheck-tmpuyr2gbh0qe_default Created 
+ Network countercheck-tmpuyr2gbh0qe_default Created 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Creating 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Created 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Creating 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Created 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Started 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Healthy 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Started 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Waiting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Healthy 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Healthy 
+GET /: count=3 — OK
+
+=== Отключение Redis ===
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopped 
+GET /healthz: HTTP 200 — OK
+GET /readyz: HTTP 503 — OK
+POST /increment: HTTP 503 — OK
+
+=== Восстановление Redis без перезапуска приложения ===
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Starting 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Started 
+GET /: count=3 — OK
+POST /increment: count=4 — OK
+
+=== Согласованная резервная копия ===
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopped 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopped 
+Резервная копия: backups/countercheck-tmpuyr2gbh0qe.tar
+
+=== Удаление тестового проекта вместе с volumes ===
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Stopped 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Removing 
+ Container countercheck-tmpuyr2gbh0qe-app-1 Removed 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopping 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Stopped 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Removing 
+ Container countercheck-tmpuyr2gbh0qe-redis-1 Removed 
+ Network countercheck-tmpuyr2gbh0qe_default Removing 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Removing 
+ Volume countercheck-tmpuyr2gbh0qe_redis-data Removed 
+ Network countercheck-tmpuyr2gbh0qe_default Removed 
+
+SUCCESS: все проверки пройдены, тестовые volumes удалены.

@@ -1,0 +1,160 @@
+
+=== Новый проект с пустым хранилищем ===
+Проект: countercheck-tmpb8e3c2eyjf
+ Image countercheck-tmpb8e3c2eyjf-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 514B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 207B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 93B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 127B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 done
+#6 DONE 0.0s
+
+#7 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#7 CACHED
+
+#8 [2/5] WORKDIR /app
+#8 CACHED
+
+#9 [3/5] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [5/5] COPY app/ .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:2c92e62f512b489391583c0343eb71a82c38358dda9dbfa857705c28c6311ee3 done
+#11 exporting config sha256:ef0c23bae7e9c0a1f756fbf2bf26ca367f78acf8c12cce6c75d5bc2262395914 done
+#11 exporting attestation manifest sha256:684afb9db63597986ea9842a0e886bb777dc90ea735b2a8e43ff8f99b304a0e9 done
+#11 exporting manifest list sha256:6eada35fa7a122492941dab0356560510ed2e3df7d1ec979abd96f71380b01c4 done
+#11 naming to docker.io/library/countercheck-tmpb8e3c2eyjf-app:latest done
+#11 unpacking to docker.io/library/countercheck-tmpb8e3c2eyjf-app:latest done
+#11 DONE 0.0s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image countercheck-tmpb8e3c2eyjf-app Built 
+ Network countercheck-tmpb8e3c2eyjf_default Creating 
+ Network countercheck-tmpb8e3c2eyjf_default Creating 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Creating 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Creating 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Created 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Created 
+ Network countercheck-tmpb8e3c2eyjf_default Created 
+ Network countercheck-tmpb8e3c2eyjf_default Created 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Creating 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Created 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Creating 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Created 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Started 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Healthy 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Started 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Healthy 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Healthy 
+GET /: count=0 — OK
+
+=== Ограничения приложения ===
+UID=10001; read-only=true; RAM=256 MiB; CPU=1 — OK
+
+=== Увеличение счётчика ===
+POST /increment: count=1 — OK
+POST /increment: count=2 — OK
+POST /increment: count=3 — OK
+GET /: count=3 — OK
+
+=== Пересоздание только приложения ===
+ Container countercheck-tmpb8e3c2eyjf-app-1 Recreate 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Recreated 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Started 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Healthy 
+GET /: count=3 — OK
+
+=== Сохранение после down и up ===
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopped 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Removing 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Removed 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopped 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Removing 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Removed 
+ Network countercheck-tmpb8e3c2eyjf_default Removing 
+ Network countercheck-tmpb8e3c2eyjf_default Removed 
+ Network countercheck-tmpb8e3c2eyjf_default Creating 
+ Network countercheck-tmpb8e3c2eyjf_default Creating 
+ Network countercheck-tmpb8e3c2eyjf_default Created 
+ Network countercheck-tmpb8e3c2eyjf_default Created 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Creating 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Created 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Creating 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Created 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Started 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Healthy 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Started 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Waiting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Healthy 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Healthy 
+GET /: count=3 — OK
+
+=== Отключение Redis ===
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopped 
+GET /healthz: HTTP 200 — OK
+GET /readyz: HTTP 503 — OK
+POST /increment: HTTP 503 — OK
+
+=== Восстановление Redis без перезапуска приложения ===
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Starting 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Started 
+GET /: count=3 — OK
+POST /increment: count=4 — OK
+
+=== Согласованная резервная копия ===
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopped 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopped 
+Резервная копия: backups/countercheck-tmpb8e3c2eyjf.tar
+
+=== Удаление тестового проекта вместе с volumes ===
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Stopped 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Removing 
+ Container countercheck-tmpb8e3c2eyjf-app-1 Removed 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopping 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Stopped 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Removing 
+ Container countercheck-tmpb8e3c2eyjf-redis-1 Removed 
+ Network countercheck-tmpb8e3c2eyjf_default Removing 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Removing 
+ Volume countercheck-tmpb8e3c2eyjf_redis-data Removed 
+ Network countercheck-tmpb8e3c2eyjf_default Removed 
+
+SUCCESS: все проверки пройдены, тестовые volumes удалены.
